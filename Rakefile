@@ -1,9 +1,9 @@
-desc "compile and run the site"
+  desc "compile and run the site"
 task :default do
   pids = [
     spawn("jekyll"), # put `auto: true` in your _config.yml
-    spawn("scss --watch assets:stylesheets"),
-    spawn("coffee -b -w -o javascripts -c assets/*.coffee")
+    spawn("scss --watch _assets:stylesheets"),
+    spawn("coffee -b -w -o javascripts -c _assets/*.coffee")
   ]
 
   trap "INT" do
