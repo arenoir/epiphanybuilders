@@ -1,5 +1,9 @@
 @import "application/common"
 
+.page
+    width: 300px
+    margin: 0 auto
+
 .header-container,
 .main-container,
 .footer-container
@@ -17,32 +21,50 @@ $insetShadow: inset 0px 1px 3px 0px #000
     -webkit-box-shadow: $insetShadow
     box-shadow: $insetShadow
 
+    .inner
+        margin: $gutterSmall
+
 .footer-container
     background: $footerBgColor
 
-.title
-    float: left
-    display: block
-    width: 230px
-    height: 54px
-    background: url('../img/sprite.png') 0 0 no-repeat
-    text-indent: -9999px
+.inner-left
+    width: auto
+
+.inner-right
+
 
 @media #{$mediaPhone}
     .title
         margin: 10px
 
-    .page
-        width: $pageWidthPhone
 
 @media #{$mediaTablet}
     .page
-        width: $pageWidthPhone
+        width: $pageWidthTablet
+
+    .inner-left
+        float: left
+        width: #{ 320px - $gutterLarge }
+        margin-left: $gutterLarge
+
+    .inner-right
+        margin-left: 320px
+        width: auto
+        margin-right: $gutterLarge
 
 @media #{$mediaDesktop}
     
-    .title
-        margin: 40px 0 45px 0
+    .inner-left
+        float: left
+        width: #{ 320px - $gutterLarge }
+        margin-left: $gutterLarge
+
+    .inner-right
+        margin-left: 320px
+        width: auto
+        margin-right: $gutterLarge
+
+    
 
     .page
         width: 1000px

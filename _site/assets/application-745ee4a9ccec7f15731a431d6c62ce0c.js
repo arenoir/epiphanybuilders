@@ -12320,6 +12320,151 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
   };
 
 }).call(this);
+/**
+ * Simple Carousel
+ * Copyright (c) 2010 Tobias Zeising, http://www.aditu.de
+ * Licensed under the MIT license
+ * 
+ * http://code.google.com/p/simple-carousel/
+ * Version 0.3
+ */
+
+(function($){
+$.fn.simplecarousel = function( params ) {
+    // set config
+    var defaults = {
+        width: 700,
+        height: 500,
+        next: false,
+        prev: false,
+        vertical: false,
+        auto: false,
+        fade: false,
+        current: 0,
+        items: 0,
+        slidespeed: 600,
+        visible: 1,
+        pagination: false
+    };
+    var config = $.extend(defaults, params);
+    
+    // configure carousel ul and li
+    var ul = $(this);
+    var li = ul.children('li');
+    
+    config.items = li.length;
+    
+    var height = config.height;
+    var width = config.width;
+    if(config.visible>1) {
+        if(config.vertical)
+            height = height*config.visible;
+        else
+            width = width*config.visible;
+    }
+    
+    ul.wrap('<div class="carousel-frame" style="width:'+width+'px;height:'+height+'px;overflow:hidden">');
+    var container = ul.parent('.carousel-frame');
+    if(!config.vertical) {
+        ul.width(config.items*config.width);
+        ul.height(config.height);
+    } else {
+        ul.width(config.width);
+        ul.height(config.items*config.height);
+    }
+    ul.css('overflow','hidden');
+    
+    li.each(function(i,item) {
+        $(item).width(config.width);
+        $(item).height(config.height);
+        if(!config.vertical)
+            $(item).css('float','left');
+    });
+    
+    // function for sliding the carousel
+    var slide = function(dir, click) {
+        if(typeof click == "undefined" & config.auto==false)
+            return;
+    
+        if(dir=="next") {
+            config.current += config.visible;
+            if(config.current>=config.items)
+                config.current = 0;
+        } else if(dir=="prev") {
+            config.current -= config.visible;
+            if(config.current<0)
+                config.current = (config.visible==1) ? config.items-1 : config.items-config.visible+(config.visible-(config.items%config.visible));
+        } else {
+            config.current = dir;
+        }
+        
+        // set pagination
+        if(config.pagination != false) {
+            container.next('.carousel-pagination').find('li').removeClass('carousel-pagination-active')
+            container.next('.carousel-pagination').find('li:nth-child('+(config.current+1)+')').addClass('carousel-pagination-active');
+        }
+        
+        // fade
+        if(config.fade!=false) {
+            ul.fadeOut(config.fade, function() {
+                ul.css({marginLeft: -1.0*config.current*config.width});
+                ul.fadeIn(config.fade);
+            });
+            
+        // slide
+        } else {
+            if(!config.vertical)
+                ul.animate( {marginLeft: -1.0*config.current*config.width}, config.slidespeed );
+            else
+                ul.animate( {marginTop: -1.0*config.current*config.height}, config.slidespeed );
+        }
+        
+        if(typeof click != "undefined")
+            config.auto = false;
+        
+        if(config.auto!=false)
+            setTimeout(function() {
+                slide('next');
+            }, config.auto);
+    }
+    
+    // include pagination
+    if(config.pagination != false) {
+        container.after('<ul class="carousel-pagination"></ul>');
+        var pagination = container.next('.carousel-pagination');
+        for(var i=0;i<config.items;i++) {
+            if(i==0)
+                pagination.append('<li class="carousel-pagination-active"></li>');
+            else
+                pagination.append('<li></li>');
+        }
+        
+        pagination.find('li').each(function(index, item) {
+            $(this).click(function() {
+                slide(index,true);
+            });
+        });
+    }
+        
+    // set event handler for next and prev
+    if(config.next!=false)
+        config.next.click(function() {
+            slide('next',true);
+        });
+        
+        
+    if(config.prev!=false)
+        config.prev.click(function() {
+            slide('prev',true);
+        });
+    
+    // start auto sliding
+    if(config.auto!=false)
+        setTimeout(function() {
+            slide('next');
+        }, config.auto);
+}
+})(jQuery);
 (function() {
 
   this.Eb = {
@@ -12327,11 +12472,11 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     Collections: {},
     Views: {},
     Routers: {},
-    init: function(galleries) {
+    init: function(slides) {
       var view;
-      this.galleries = new Eb.Collections.Galleries(galleries);
-      view = new Eb.Views.GalleryList({
-        collection: this.galleries
+      this.slides = new Eb.Collections.Slides(slides);
+      view = new Eb.Views.SlideShow({
+        collection: this.slides
       });
       view.render();
     }
@@ -12373,19 +12518,8 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     }
 
     Slide.prototype.defaults = {
-      uri: '',
-      state: ''
-    };
-
-    Slide.prototype.select = function(state) {
-      var st;
-      st = '';
-      if (state) {
-        st = 'selected';
-      }
-      return this.set({
-        'state': st
-      });
+      src: '',
+      title: ''
     };
 
     return Slide;
@@ -12483,6 +12617,82 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
+  Eb.Views.SlideIndicator = (function(_super) {
+
+    __extends(SlideIndicator, _super);
+
+    function SlideIndicator() {
+      return SlideIndicator.__super__.constructor.apply(this, arguments);
+    }
+
+    SlideIndicator.prototype.tagName = 'li';
+
+    SlideIndicator.prototype.events = {
+      'click a': 'activateSlide'
+    };
+
+    SlideIndicator.prototype.render = function() {
+      return $(this.el).html(JST['application/templates/slides/slide_indicator']({
+        model: this.model
+      }));
+    };
+
+    SlideIndicator.prototype.activateSlide = function() {
+      console.log(this);
+      return this.collection.activate(this);
+    };
+
+    return SlideIndicator;
+
+  })(Backbone.View);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Eb.Views.SlideShow = (function(_super) {
+
+    __extends(SlideShow, _super);
+
+    function SlideShow() {
+      return SlideShow.__super__.constructor.apply(this, arguments);
+    }
+
+    SlideShow.prototype.render = function() {
+      var _this = this;
+      this.renderSlideIndicators();
+      this.collection.each(function(slide) {
+        return $('#slides').append(JST['application/templates/slides/slide']({
+          model: slide
+        }));
+      });
+      return this;
+    };
+
+    SlideShow.prototype.renderSlideIndicators = function() {
+      var _this = this;
+      this.collection.each(function(slide) {
+        var t;
+        console.log(slide);
+        t = new Eb.Views.SlideIndicator({
+          model: slide,
+          collection: _this.collection
+        });
+        return $('.slide-control').append(t.render());
+      });
+      return this;
+    };
+
+    return SlideShow;
+
+  })(Backbone.View);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
   Eb.Routers.Application = (function(_super) {
 
     __extends(Application, _super);
@@ -12525,6 +12735,10 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 }).call(this);
 (function() { this.JST || (this.JST = {}); this.JST["application/templates/galleries/listitem"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<li class="">\n\t<a href="#">\n\t\t<span>\n\t\t\t',  model.get('title'),'\n\t\t</span>\n\t</a>\n</li>\n');}return __p.join('');};
+}).call(this);
+(function() { this.JST || (this.JST = {}); this.JST["application/templates/slides/slide"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<li class="">\n\t<img src="',  model.get('src'),'"/>\n</li>\n');}return __p.join('');};
+}).call(this);
+(function() { this.JST || (this.JST = {}); this.JST["application/templates/slides/slide_indicator"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<a></a>\n');}return __p.join('');};
 }).call(this);
 
 

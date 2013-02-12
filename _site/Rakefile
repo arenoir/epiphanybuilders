@@ -2,8 +2,8 @@
 task :default do
   pids = [
     spawn("jekyll"), # put `auto: true` in your _config.yml
-    spawn("scss --watch _assets:stylesheets"),
-    spawn("coffee -b -w -o javascripts -c _assets/*.coffee")
+    spawn("scss --watch assets:stylesheets"),
+    spawn("coffee -b -w -o javascripts -c assets/*.coffee")
   ]
 
   trap "INT" do

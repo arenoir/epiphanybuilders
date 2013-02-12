@@ -13,11 +13,13 @@
   Routers: {}
   
   
-  init: (galleries) ->
+  init: (slides) ->
     #console.log galleries
-    @galleries = new Eb.Collections.Galleries(galleries)
-    view = new Eb.Views.GalleryList( collection: @galleries )
+    @slides = new Eb.Collections.Slides(slides)
+    view = new Eb.Views.SlideShow( collection: @slides )
     view.render()
+
+
     
 
     

@@ -11,9 +11,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="/assets/application-94150b30a97dcec990dd8db1fde4e317.css">
+        <link rel="stylesheet" type="text/css" href="/assets/application-75968af7f6ece28368396c9a7203ee1d.css">
 
-        <script type="text/javascript" src="/assets/application-cf12411a391539fab90538ca93b996c6.js"></script>
+        <script type="text/javascript" src="/assets/application-745ee4a9ccec7f15731a431d6c62ce0c.js"></script>
 
 
     </head>
@@ -24,25 +24,29 @@
             <div class="header-container">
                 <header class="wrapper clearfix">
                     
-                    <h1 class="title">Epiphany Builders</h1>
+                    <div class="inner-left">
+                        <h1 class="title">Epiphany Builders</h1>
+                    </div>
                     
-                    <h2 class="sub-title">Your Bay Area General contractor</h2>
-                    
-                    <nav class="primary">
-                        <ul>
-                            <li><a href="#">OUR WORK</a></li>
-                            <li><a href="#">ASK BOB</a></li>
-                            <li><a href="#">CONTACT</a></li>
-                        </ul>
-                    </nav>
+                    <div class="inner-right">
+                        <h2 class="sub-title">Your Bay Area General contractor</h2>
+                        <hr/>
+                        <nav class="primary">
+                            <ul>
+                                <li><a href="#">OUR WORK</a></li>
+                                <li><a href="#">ASK BOB</a></li>
+                                <li><a href="#">CONTACT</a></li>
+                            </ul>
+                        </nav>
 
-                    <nav class="secondary">
-                        <ul>
-                            <li><a href="#"><i class="icon-facebook"> </i> FACEBOOK</a></li>
-                            <li><a href="#"><i class="icon-map"> </i> MAP</a></li>
-                            <li><a href="#"><i class="icon-phone"> </i> 510-812-5497</a></li>
-                        </ul>
-                    </nav>
+                        <nav class="secondary">
+                            <ul>
+                                <li><a href="#" class="icon-facebook">FACEBOOK</a></li>
+                                <li><a href="#" class="small icon-map">MAP</a></li>
+                                <li><a href="#" class="icon-phone">510-812-5497</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </header>
             </div>
 
@@ -64,11 +68,9 @@
                         </ul>
                     </div>
                     <div class="slide-container">
+                        <ul id="slides"></ul>
                     </div>
                     <ul class="slide-control">
-                        <li><a class="active"></a></li>
-                        <li><a></a></li>
-                        <li><a></a></li>
                     </ul>
                     <div class="slide-description">
                         <strong>Buger Kitchen</strong>
@@ -89,7 +91,12 @@
 
 
             <script>
-                Eb.init([{id: 1, title: 'test'}])
+                Eb.init([
+                    {id: 1, title: 'test', src: "/img/slideshow/1.jpg"},
+                    {id: 2, title: 'test', src: "/img/slideshow/2.jpg"},
+                    {id: 3, title: 'test', src: "/img/slideshow/3.jpg"},
+                    {id: 4, title: 'test', src: "/img/slideshow/4.jpg"}
+                ])
             </script>
         
         </div>

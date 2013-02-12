@@ -1,48 +1,91 @@
 @import "application/common"
-nav ul
-    margin: 0
-    padding: 0
 
-nav a
-    display: block
-    margin-bottom: 10px
-    padding: 15px 0
-    text-align: center
-    text-decoration: none
-    font-weight: bold
-    color: white
+nav 
+    ul
+        margin: 0
+        padding: 0
+        float: left
+        li
+            float: left
+            margin: 20px 0 25px 20px
+            line-height: 16px
 
-nav a:hover,
-nav a:visited 
-    color: white
+            a
+                font-size: 11px
+                color: $textColor
+                display: block
+                white-space: nowrap
+                overflow: hidden
+                letter-spacing: $letterSpacing
 
-nav a:hover
-    text-decoration: underline
+    &.primary
+        ul
 
-nav
-    float: right
-    width: 38%
+    &.secondary
+        ul
+            float: right
+
+            li
+                margin: 20px 0 25px 5px
+
+                a
+                    width: 20px
+                    text-indent: -9999px
+                    background: $iconSpriteSmallUrl 0 0 no-repeat
+
+                    &.icon-map
+                        background-position: 0 -60px
+
+                    &.icon-phone
+                        background-position: 0 -120px
 
 @media #{$mediaTablet}
+    nav 
+        ul
+            li
+                float: left
+                margin: 20px 35px 25px 0
+                line-height: 16px
 
-    nav a
-        float: left
-        width: 27%
-        margin: 0 1.7%
-        padding: 25px 2%
-        margin-bottom: 0
 
-    nav li:first-child a
-        margin-left: 0
 
-    nav li:last-child a
-        margin-right: 0
 
-    nav ul li
-        display: inline
+@media #{$mediaDesktop}
 
-    .oldie nav a
-        margin: 0 0.7%
+    nav 
+        ul
+            margin: 0
+            padding: 0
+            float: left
+            li
+                float: left
+                margin: 20px 35px 25px 0
+                line-height: 16px
+
+                a
+                    font-size: 11px
+                    color: $textColor
+                    display: block
+                    white-space: nowrap
+                    overflow: hidden
+                    letter-spacing: $letterSpacing
+
+        &.primary
+            ul
+
+        &.secondary
+            ul
+                float: right
+
+                li
+                    margin: 20px 0 25px 15px
+                    a
+                        padding-left: 20px
+                        text-indent: 0
+                        width: auto
+ 
+    
+
 
     .slide-container
         width: 440px

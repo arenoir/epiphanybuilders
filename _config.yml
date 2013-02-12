@@ -1,5 +1,5 @@
 markdown: rdiscount
-#auto: true
+auto: true
 
 exclude: ["README.md", "LICENSE.md", "TODO.md", "build", "test"]
 
