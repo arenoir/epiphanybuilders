@@ -16,8 +16,15 @@
   init: (slides) ->
     #console.log galleries
     @slides = new Eb.Collections.Slides(slides)
+    @slides.selected = @slides.first()
     view = new Eb.Views.SlideShow( collection: @slides )
     view.render()
+
+    # setInterval( () =>
+    #     @slides.next()
+    #     return
+    #   700
+    # )
 
 
     
