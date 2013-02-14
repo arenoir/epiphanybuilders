@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>your page's title</title>
+ <link href="http://your.pages.url/atom.xml" rel="self" />
+ <link href="http://your.pages.url/" />
+ <updated>2013-02-13T21:07:50-08:00</updated>
+ <id>http://your.pages.url<id>
+ <author>
+   <name>site.owner-name</name>
+   <email>site.owner-email</email>
+ </author>
+
+ 
+ 
+</feed>

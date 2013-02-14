@@ -1,0 +1,165 @@
+@import "application/common"
+
+.slide-container
+    float: left
+    width: $imageWidthSmall
+    height: $imageHeightSmall
+    background: #fff
+    overflow: hidden
+    ul
+        padding: 0
+        margin: 0
+        overflow: hidden
+        list-style: none
+        width: 9999px
+        li
+            height: $imageHeightSmall
+            width: $imageWidthSmall
+            text-align: center
+            float: left
+            overflow: hidden
+            img
+                width: $imageWidthSmall
+
+
+
+.slide-menu
+    margin: 0
+    width: $imageWidthSmall
+    background: #2e2622
+    letter-spacing: $letterSpacing
+    font-size: 11px
+    -moz-box-shadow: 0px 1px 3px 0px #000
+    -webkit-box-shadow: 0px 1px 3px 0px #000
+    box-shadow: 0px 1px 3px 0px #000
+    overflow: hidden
+
+    .heading
+        display: none
+        margin: 0
+
+    ul
+        text-align: left
+        list-style: none
+        margin: 20px
+        padding: 0
+
+    li 
+        padding: 0
+        margin: 0
+        border-bottom: 1px solid #3b322e
+
+        a
+            display: block
+            border-bottom: 1px solid #1d1917
+            padding: 10px 0
+            text-transform: uppercase
+
+            span 
+                margin-left: 20px
+
+        &.active
+            background: #1b1e22
+            
+            a
+                color: #1661b6
+
+//.slide-description
+
+ul.slide-control
+    padding: 0
+    display: block
+    text-align: center
+    clear: both
+    list-style: none
+    white-space: nowrap
+    
+    li
+        margin: 0 2px
+        padding: 0
+        list-style: none
+        display: inline-block
+
+        
+        a
+            margin: 0
+            padding: 0
+            display: block
+            border-radius: 50%
+            width: 12px
+            height: 12px
+            background: #413934
+
+        &.active
+            background: #1661b6
+
+
+    
+
+.slide-description
+    margin-left: 280px
+    margin-top: 20px
+
+
+ul.slide-control
+    margin-left: 280px
+
+
+
+@media #{$mediaTablet}
+    .slide-container
+        width: $imageWidthMedium
+        height: $imageHeightMedium
+        ul
+            li
+                height: $imageHeightMedium
+                width: $imageWidthMedium
+                img
+                    width: $imageWidthMedium
+
+    .slide-menu
+        float: left
+        margin-right: $gutterSmall
+        width: 240px
+        height: $imageHeightMedium
+
+
+        li 
+            padding: 0
+            margin: 0
+            border-bottom: 1px solid #3b322e
+
+            a
+                display: block
+                border-bottom: 1px solid #1d1917
+                padding: 10px 0
+                text-transform: uppercase
+
+            span 
+                margin-left: 68px
+
+@media #{$mediaDesktop}
+    .slide-menu
+        float: left
+        margin-right: $gutterLarge
+        width: 240px
+        height: $imageHeightLarge
+
+        .heading
+            display: inline-block
+            margin-left: 88px
+            margin-bottom: 30px
+
+            i
+                margin: 20px 0
+
+    .slide-container
+        width: $imageWidthLarge
+        height: $imageHeightLarge
+        ul
+            li
+                height: $imageHeightLarge
+                width: $imageWidthLarge
+                img
+                    width: $imageWidthLarge
+

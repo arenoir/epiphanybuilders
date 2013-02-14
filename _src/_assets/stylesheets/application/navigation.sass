@@ -1,0 +1,87 @@
+@import "application/common"
+
+nav 
+    ul
+        margin: 0
+        padding: 0
+        float: left
+        li
+            float: left
+            margin: 20px 0 25px 20px
+            line-height: 16px
+            list-style: none
+            a
+                font-size: 11px
+                color: $textColor
+                display: block
+                white-space: nowrap
+                overflow: hidden
+                letter-spacing: $letterSpacing
+
+    &.secondary
+        ul
+            float: right
+
+            li
+                margin: 20px 0 25px 5px
+
+                a
+                    width: 20px
+                    text-indent: -9999px
+                    background: $iconSpriteSmallUrl 0 0 no-repeat
+
+                    &.icon-map
+                        background-position: 0 -60px
+
+                    &.icon-phone
+                        background-position: 0 -120px
+
+@media #{$mediaTablet}
+    nav 
+        ul
+            li
+                float: left
+                margin: 20px 35px 25px 0
+                line-height: 16px
+
+
+
+
+@media #{$mediaDesktop}
+
+    nav 
+        ul
+            margin: 0
+            padding: 0
+            float: left
+            li
+                float: left
+                margin: 20px 35px 25px 0
+                line-height: 16px
+
+                a
+                    font-size: 11px
+                    color: $textColor
+                    display: block
+                    white-space: nowrap
+                    overflow: hidden
+                    letter-spacing: $letterSpacing
+
+        &.secondary
+            ul
+                float: right
+
+                li
+                    margin: 20px 0 25px 15px
+                    a
+                        padding-left: 20px
+                        text-indent: 0
+                        width: auto
+ 
+    
+
+
+    .slide-container
+        width: 440px
+        height: 300px
+        background: #fff

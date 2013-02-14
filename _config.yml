@@ -9,4 +9,6 @@ owner-email: your email
 
 license: your license of choice
 
-
+source: ./_src
+plugins:     ./_src/_plugins
+destination: ./site

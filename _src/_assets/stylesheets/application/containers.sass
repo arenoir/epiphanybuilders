@@ -1,0 +1,78 @@
+@import "application/common"
+
+.page
+    width: 300px
+    margin: 0 auto
+
+.header-container,
+.main-container,
+.footer-container
+    margin: 0
+
+.header-container
+    background: $headerBgColor
+
+$insetShadow: inset 0px 1px 3px 0px #000
+
+
+.main-container
+    background: $mainBgColor
+    -moz-box-shadow: $insetShadow 
+    -webkit-box-shadow: $insetShadow
+    box-shadow: $insetShadow
+
+.inner
+    margin-top: $gutterTiny
+    margin-left: $gutterTiny
+
+.footer-container
+    background: $footerBgColor
+
+.inner-left
+    width: auto
+
+
+
+@media #{$mediaPhone}
+    .title
+        margin: 10px
+
+
+@media #{$mediaTablet}
+    .page
+        width: $pageWidthTablet
+
+    .inner
+        margin-top: $gutterSmall
+        margin-left: $gutterSmall
+
+    .inner-left
+        float: left
+        width: #{ 320px - $gutterLarge }
+        margin-left: $gutterLarge
+
+    .inner-right
+        margin-left: 320px
+        width: auto
+        margin-right: $gutterLarge
+
+@media #{$mediaDesktop}
+    
+    .inner-left
+        float: left
+        width: #{ 320px - $gutterLarge }
+        margin-left: $gutterLarge
+
+    .inner-right
+        margin-left: 320px
+        width: auto
+        margin-right: $gutterLarge
+
+    
+    .page
+        width: 1000px
+        margin: 0 auto
+
+    .inner
+        margin-top: 20px
+        margin-left: $gutterLarge
