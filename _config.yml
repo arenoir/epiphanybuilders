@@ -15,4 +15,4 @@ destination: ./site
 baseurl:    /site
 
 assets:
-  baseurl: /site/assets
+  baseurl: ../site/assets
