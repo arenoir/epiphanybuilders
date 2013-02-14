@@ -157,7 +157,7 @@ i {
   display: block;
   width: 46px;
   height: 46px;
-  background: url("/img/sprite.png"); }
+  background: url("../img/sprite.png"); }
   i.small {
     display: inline-block;
     width: 23px;
@@ -187,7 +187,7 @@ nav.secondary ul {
     nav.secondary ul li a {
       width: 20px;
       text-indent: -9999px;
-      background: url("/img/icon-small-sprite.png") 0 0 no-repeat; }
+      background: url("../img/icon-small-sprite.png") 0 0 no-repeat; }
       nav.secondary ul li a.icon-map {
         background-position: 0 -60px; }
       nav.secondary ul li a.icon-phone {
@@ -240,13 +240,16 @@ nav.secondary ul {
     list-style: none;
     width: 9999px; }
     .slide-container ul li {
-      height: 150px;
       width: 280px;
+      height: auto;
+      margin: 0;
+      padding: 0;
       text-align: center;
       float: left;
       overflow: hidden; }
       .slide-container ul li img {
-        width: 280px; }
+        width: 280px;
+        height: auto; }
 
 .slide-menu {
   margin: 0;
@@ -317,10 +320,11 @@ ul.slide-control {
     width: 460px;
     height: 287px; }
     .slide-container ul li {
-      height: 287px;
-      width: 460px; }
+      width: 460px;
+      height: auto; }
       .slide-container ul li img {
-        width: 460px; }
+        width: 460px;
+        height: auto; }
 
   .slide-menu {
     float: left;
@@ -355,10 +359,11 @@ ul.slide-control {
     width: 640px;
     height: 400px; }
     .slide-container ul li {
-      height: 400px;
-      width: 640px; }
+      width: 640px;
+      height: auto; }
       .slide-container ul li img {
-        width: 640px; } }
+        width: 640px;
+        height: auto; } }
 header {
   background: url("../img/sprite.png") 0 -300px no-repeat; }
   header .title {
