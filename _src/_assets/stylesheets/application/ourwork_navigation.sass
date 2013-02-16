@@ -29,8 +29,6 @@
 .slide-menu
     margin: 0
     width: $imageWidthSmall
-    letter-spacing: $letterSpacing
-    font-size: 11px
     overflow: hidden
 
     .heading
@@ -53,7 +51,7 @@
                 border-bottom: 1px solid $borderDarkColor
                 padding: 10px 0
                 text-transform: uppercase
-
+                @include uppercased-text
                 span 
                     margin-left: 9px
 
@@ -68,6 +66,7 @@
                 border-top: 1px solid $borderDarkColor
 
 
+
 //.slide-description
 
 ul.slide-control
@@ -79,7 +78,7 @@ ul.slide-control
     white-space: nowrap
     
     li
-        margin: 0 2px
+        margin: 0 5px
         padding: 0
         list-style: none
         display: inline-block
@@ -90,12 +89,13 @@ ul.slide-control
             padding: 0
             display: block
             border-radius: 50%
-            width: 12px
-            height: 12px
+            width: 14px
+            height: 14px
             background: #413934
 
         &.active
-            background: #1661b6
+            a
+                background: #1661b6
 
 
     
@@ -162,3 +162,10 @@ ul.slide-control
                     width: $imageWidthLarge
                     height: auto
 
+    .what-we-do-icons-container
+        width: 240px
+        float: left
+        margin-right: $gutterLarge
+        .icon-container
+            margin-right: 2px
+            margin-bottom: 30px
