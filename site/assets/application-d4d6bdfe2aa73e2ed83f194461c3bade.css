@@ -302,10 +302,10 @@ nav.secondary ul {
     .slide-menu ul li {
       padding: 0;
       margin: 0;
-      border-bottom: 1px solid #32363c; }
+      border-bottom: 1px solid #26292e; }
       .slide-menu ul li a {
         display: block;
-        border-bottom: 1px solid #1e2126;
+        border-bottom: 1px solid #17191d;
         padding: 10px 0;
         text-transform: uppercase;
         text-transform: uppercase;
@@ -318,9 +318,9 @@ nav.secondary ul {
         .slide-menu ul li.active a {
           color: #1661b6; }
     .slide-menu ul li:first-child {
-      border-top: 1px solid #32363c; }
+      border-top: 1px solid #26292e; }
       .slide-menu ul li:first-child a {
-        border-top: 1px solid #1e2126; }
+        border-top: 1px solid #17191d; }
 
 ul.slide-control {
   padding: 0;
