@@ -248,7 +248,7 @@ nav.secondary ul {
       .slide-container ul li img {
         width: 280px; }
 
-.slide-menu {
+.work-menu {
   margin: 0;
   width: 280px;
   background: #2e2622;
@@ -258,28 +258,28 @@ nav.secondary ul {
   -webkit-box-shadow: 0px 1px 3px 0px black;
   box-shadow: 0px 1px 3px 0px black;
   overflow: hidden; }
-  .slide-menu .heading {
+  .work-menu .heading {
     display: none;
     margin: 0; }
-  .slide-menu ul {
+  .work-menu ul {
     text-align: left;
     list-style: none;
     margin: 20px;
     padding: 0; }
-  .slide-menu li {
+  .work-menu li {
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #3b322e; }
-    .slide-menu li a {
+    .work-menu li a {
       display: block;
       border-bottom: 1px solid #1d1917;
       padding: 10px 0;
       text-transform: uppercase; }
-      .slide-menu li a span {
+      .work-menu li a span {
         margin-left: 20px; }
-    .slide-menu li.active {
+    .work-menu li.active {
       background: #1b1e22; }
-      .slide-menu li.active a {
+      .work-menu li.active a {
         color: #1661b6; }
 
 ul.slide-control {
@@ -322,33 +322,33 @@ ul.slide-control {
       .slide-container ul li img {
         width: 460px; }
 
-  .slide-menu {
+  .work-menu {
     float: left;
     margin-right: 16px;
     width: 240px;
     height: 287px; }
-    .slide-menu li {
+    .work-menu li {
       padding: 0;
       margin: 0;
       border-bottom: 1px solid #3b322e; }
-      .slide-menu li a {
+      .work-menu li a {
         display: block;
         border-bottom: 1px solid #1d1917;
         padding: 10px 0;
         text-transform: uppercase; }
-      .slide-menu li span {
+      .work-menu li span {
         margin-left: 68px; } }
 @media screen and (min-width: 1000px) {
-  .slide-menu {
+  .work-menu {
     float: left;
     margin-right: 40px;
     width: 240px;
     height: 400px; }
-    .slide-menu .heading {
+    .work-menu .heading {
       display: inline-block;
       margin-left: 88px;
       margin-bottom: 30px; }
-      .slide-menu .heading i {
+      .work-menu .heading i {
         margin: 20px 0; }
 
   .slide-container {

@@ -26,9 +26,10 @@
 
 
 
-.slide-menu
+.work-menu
     margin: 0
-    width: $imageWidthSmall
+    width: auto
+    margin-right: $gutterTiny
     overflow: hidden
 
     .heading
@@ -61,27 +62,29 @@
                 a
                     color: #1661b6
         li:first-child
-            border-top: 1px solid $borderLightColor
+            border-top: 1px solid $borderDarkColor
             a
-                border-top: 1px solid $borderDarkColor
+                border-top: 1px solid $borderLightColor
+
 
 
 
 //.slide-description
 
 ul.slide-control
+    margin-right: $gutterTiny
     padding: 0
     display: block
     text-align: center
-    clear: both
     list-style: none
     white-space: nowrap
-    
+
     li
         margin: 0 5px
         padding: 0
         list-style: none
         display: inline-block
+        line-height: 40px
 
         
         a
@@ -92,26 +95,45 @@ ul.slide-control
             width: 14px
             height: 14px
             background: #413934
+            vertical-align: center
+
 
         &.active
             a
                 background: #1661b6
 
+        &.arrow-next,
+        &.arrow-previous
+            a
+                width: 20px
+                height: 40px
+                border-radius: 0
+                background: $spriteUrl
+                background-position: 0 -80px
+                text-indent: -9999px
+        &.arrow-next
+            margin-left: 60px
+            a
+                background-position: -100px -80px
+                &:hover
+                    background-position: -100px -140px
+        &.arrow-previous
+            margin-right: 60px
+            a
+                background-position: 0 -80px
+                &:hover
+                    background-position: 0 -140px
 
-    
-
-.slide-description
-    margin-left: 280px
-    margin-top: 20px
-
-
-ul.slide-control
-    margin-left: 280px
+.slide-thumbnails
+    display: inline-block
+    height: 60px
 
 
 
 @media #{$mediaTablet}
     .slide-container
+        float: right
+        margin-right: $gutterSmall
         width: $imageWidthMedium
         height: $imageHeightMedium
         ul
@@ -121,13 +143,23 @@ ul.slide-control
                 img
                     width: $imageWidthMedium
                     height: auto
+    .slide-control
+        float: right
+        margin-right: $gutterSmall
+        width: $imageWidthMedium
 
-    .slide-menu
+    .work-menu
+        position: absolute
         float: left
         margin-right: $gutterSmall
         width: 240px
-        height: $imageHeightMedium
+        //height: $imageHeightMedium
 
+        .heading
+            display: inline-block
+
+            i
+                margin: 20px 0
 
         li 
 
@@ -137,23 +169,35 @@ ul.slide-control
 
             span 
                 margin-left: 68px
+    .content-container,
+    .slide-thumbnails-container
+        width: $imageWidthMedium
+        float: right
+        margin-right: $gutterLarge
+
+    .what-we-do-icons-container
+        width: 260px
+        margin-top: 20px
+        float: left
+        margin-right: $gutterLarge
+        .icon-container
+            margin-right: 6px
+            margin-bottom: 30px
+
+
+
 
 @media #{$mediaDesktop}
-    .slide-menu
+    .work-menu
         float: left
         margin-right: $gutterLarge
         width: 240px
-        height: $imageHeightLarge
-
-        .heading
-            display: inline-block
-
-            i
-                margin: 20px 0
+        //height: $imageHeightLarge
 
     .slide-container
         width: $imageWidthLarge
         height: $imageHeightLarge
+        margin-right: $gutterLarge
         ul
             li
                 width: $imageWidthLarge
@@ -162,10 +206,11 @@ ul.slide-control
                     width: $imageWidthLarge
                     height: auto
 
-    .what-we-do-icons-container
-        width: 240px
-        float: left
+    .slide-control
         margin-right: $gutterLarge
-        .icon-container
-            margin-right: 2px
-            margin-bottom: 30px
+        width: $imageWidthLarge
+
+    .content-container
+        width: $imageWidthLarge
+        float: right
+        margin-right: $gutterLarge

@@ -45,16 +45,18 @@ $insetShadow: inset 0px 1px 3px 0px #000
     .inner
         margin-top: $gutterSmall
         margin-left: $gutterSmall
+        hr 
+            margin-right: $gutterSmall
 
     .inner-left
         float: left
-        width: #{ 320px - $gutterLarge }
-        margin-left: $gutterLarge
+        width: #{ 320px - $gutterSmall }
+        margin-left: $gutterSmall
 
     .inner-right
         margin-left: 320px
         width: auto
-        margin-right: $gutterLarge
+        margin-right: $gutterSmall
 
 @media #{$mediaDesktop}
     
@@ -76,3 +78,6 @@ $insetShadow: inset 0px 1px 3px 0px #000
     .inner
         margin-top: 20px
         margin-left: $gutterLarge
+
+        hr 
+            margin-right: $gutterLarge

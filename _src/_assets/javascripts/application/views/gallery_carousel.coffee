@@ -1,1 +1,0 @@
-class Eb.Views.GallerySlides extends Backbone.View

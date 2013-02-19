@@ -13258,24 +13258,38 @@ $.fn.simplecarousel = function( params ) {
 }
 })(jQuery);
 (function() {
+  var _this = this;
 
   this.Eb = {
     Models: {},
     Collections: {},
     Views: {},
     Routers: {},
-    init: function(slides) {
-      var view,
-        _this = this;
+    startSlideShow: function(slides) {
+      return slides.auto = window.setInterval(function() {
+        slides.next();
+      }, 10000);
+    },
+    stopSlideShow: function(slides) {
+      if (slides.auto) {
+        return window.clearInterval(slides.auto);
+      }
+    },
+    init: function() {
+      var slides, t, view;
+      t = $.makeArray($('#slides li')).map(function(t, i) {
+        return {
+          id: i
+        };
+      });
+      slides = JSON.parse(JSON.stringify(t));
       this.slides = new Eb.Collections.Slides(slides);
       this.slides.selected = this.slides.first();
       view = new Eb.Views.SlideShow({
         collection: this.slides
       });
       view.render();
-      setInterval(function() {
-        _this.slides.next();
-      }, 10000);
+      Eb.startSlideShow(this.slides);
     }
   };
 
@@ -13375,26 +13389,18 @@ $.fn.simplecarousel = function( params ) {
       }
     };
 
+    Slides.prototype.previous = function() {
+      var index, m, t;
+      if (m = this.selected) {
+        index = this.indexOf(m) - 1;
+        t = this.at(index) || this.last();
+        return this.setSelected(t);
+      }
+    };
+
     return Slides;
 
   })(Backbone.Collection);
-
-}).call(this);
-(function() {
-  var __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  Eb.Views.GallerySlides = (function(_super) {
-
-    __extends(GallerySlides, _super);
-
-    function GallerySlides() {
-      return GallerySlides.__super__.constructor.apply(this, arguments);
-    }
-
-    return GallerySlides;
-
-  })(Backbone.View);
 
 }).call(this);
 (function() {
@@ -13434,6 +13440,69 @@ $.fn.simplecarousel = function( params ) {
     };
 
     return GalleryList;
+
+  })(Backbone.View);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Eb.Views.NextSlide = (function(_super) {
+
+    __extends(NextSlide, _super);
+
+    function NextSlide() {
+      return NextSlide.__super__.constructor.apply(this, arguments);
+    }
+
+    NextSlide.prototype.tagName = 'li';
+
+    NextSlide.prototype.className = 'arrow-next';
+
+    NextSlide.prototype.events = {
+      'click a': 'next'
+    };
+
+    NextSlide.prototype.render = function() {
+      return $(this.el).html('<a href="#">next</a>');
+    };
+
+    NextSlide.prototype.next = function() {
+      Eb.stopSlideShow(this.collection);
+      return this.collection.next();
+    };
+
+    return NextSlide;
+
+  })(Backbone.View);
+
+  Eb.Views.PreviousSlide = (function(_super) {
+
+    __extends(PreviousSlide, _super);
+
+    function PreviousSlide() {
+      return PreviousSlide.__super__.constructor.apply(this, arguments);
+    }
+
+    PreviousSlide.prototype.tagName = 'li';
+
+    PreviousSlide.prototype.className = 'arrow-previous';
+
+    PreviousSlide.prototype.events = {
+      'click a': 'previous'
+    };
+
+    PreviousSlide.prototype.render = function() {
+      return $(this.el).html('<a href="#">previous</a>');
+    };
+
+    PreviousSlide.prototype.previous = function() {
+      Eb.stopSlideShow(this.collection);
+      return this.collection.previous();
+    };
+
+    return PreviousSlide;
 
   })(Backbone.View);
 
@@ -13505,6 +13574,7 @@ $.fn.simplecarousel = function( params ) {
     };
 
     SlideIndicator.prototype.activateSlide = function() {
+      Eb.stopSlideShow(this.collection);
       return this.collection.setSelected(this.model);
     };
 
@@ -13517,7 +13587,6 @@ $.fn.simplecarousel = function( params ) {
     };
 
     SlideIndicator.prototype.isActive = function() {
-      console.log(this.collection.selected);
       return this.model === this.collection.selected;
     };
 
@@ -13543,31 +13612,29 @@ $.fn.simplecarousel = function( params ) {
     };
 
     SlideShow.prototype.render = function() {
-      var d,
-        _this = this;
       this.renderSlideIndicators();
-      d = new Eb.Views.SlideDescription({
-        collection: this.collection
-      });
-      this.collection.each(function(slide) {
-        return $('#slides').append(JST['application/templates/slides/slide']({
-          model: slide
-        }));
-      });
       return this;
     };
 
     SlideShow.prototype.renderSlideIndicators = function() {
-      var _this = this;
+      var next, prev,
+        _this = this;
+      next = new Eb.Views.NextSlide({
+        collection: this.collection
+      });
+      prev = new Eb.Views.PreviousSlide({
+        collection: this.collection
+      });
+      $('.slide-control').append(prev.render());
       this.collection.each(function(slide) {
         var t;
-        console.log(slide);
         t = new Eb.Views.SlideIndicator({
           model: slide,
           collection: _this.collection
         });
         return $('.slide-control').append(t.render().el);
       });
+      $('.slide-control').append(next.render());
       return this;
     };
 

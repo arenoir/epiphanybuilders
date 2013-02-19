@@ -12,20 +12,39 @@
   Views: {}
   Routers: {}
   
-  
-  init: (slides) ->
-    #console.log galleries
+  startSlideShow: (slides) =>
+    slides.auto = window.setInterval( () ->
+        slides.next()
+        return
+      10000
+    )
+
+  stopSlideShow: (slides) =>
+    if slides.auto
+      window.clearInterval( slides.auto )    
+
+
+  init: () ->
+
+    t = $.makeArray($('#slides li')).map( (t, i) -> { id: i } )
+    slides =   JSON.parse(JSON.stringify(t))
+    
     @slides = new Eb.Collections.Slides(slides)
     @slides.selected = @slides.first()
     view = new Eb.Views.SlideShow( collection: @slides )
     view.render()
 
-    setInterval( () =>
-        @slides.next()
-        return
-      10000
-    )
+    Eb.startSlideShow(@slides)
 
+    # @auto = setInterval( () =>
+    #     @slides.next()
+    #     return
+    #   10000
+    # )
+
+    # stop: () ->
+    #   if @auto
+    #     window.clearInterval( @auto )
 
     
 

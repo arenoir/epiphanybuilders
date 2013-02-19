@@ -11,4 +11,8 @@ class Eb.Collections.Slides extends Backbone.Collection
       t = @at(index) || @first()
       @setSelected t
 
-  
+  previous: ->
+  	if m = @selected
+  		index = @indexOf(m) - 1
+  		t = @at(index) || @last()
+  		@setSelected t
