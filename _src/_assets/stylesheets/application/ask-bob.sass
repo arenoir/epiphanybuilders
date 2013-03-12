@@ -1,0 +1,52 @@
+@import "application/common"
+
+.ask-bob-form-container
+    margin-top: 40px
+    input[type="text"]
+        margin-top: 6px
+
+
+.qa-container,
+.ask-bob-form-container
+    margin-left: 90px
+    margin-bottom: 50px
+    margin-right: $gutterTiny
+    i
+        margin-left: -70px
+        position: absolute
+    .q
+        font-size: 20px
+        border-bottom: 1px solid $borderDarkColor
+        padding-bottom: 16px
+        color: #d4d8e3
+        small
+            margin-top: 5px
+            display: block
+            font-size: 10px
+            color: #93959b
+
+    .a
+        border-top: 1px solid $borderLightColor
+
+        p
+            margin: 0
+            padding: 15px 0
+
+@media #{$mediaTablet}
+    .qa-container
+        margin-right: $gutterSmall
+
+    .ask-bob-form-container
+        input[type="text"]
+            width: 400px
+            margin-right: 100px
+
+@media #{$mediaDesktop}
+    .qa-container
+        margin-right: $gutterLarge
+
+    .ask-bob-form-container
+        input[type="text"]
+            width: 690px
+            margin-right: 20px
+

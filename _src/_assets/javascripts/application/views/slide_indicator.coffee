@@ -6,9 +6,10 @@ class Eb.Views.SlideIndicator extends Backbone.View
 
   initialize: (options) ->
     @collection.on 'selected', @toggleActive, @
-
+    @template = options.template || 'application/templates/slides/slide_indicator'
+  
   render: ->
-    $(@el).html( JST['application/templates/slides/slide_indicator'](model: @model))
+    $(@el).html( JST[@template](model: @model))
     @toggleActive()
     @
 

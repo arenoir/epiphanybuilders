@@ -4,7 +4,7 @@ $headerBgColor: #24262c
 $mainBgColor: #1b1e22
 $footerBgColor: #22252a
 
-$fontBaseSize: 13px
+$fontBaseSize: 14px
 
 $borderLightColor: #26292e
 $borderDarkColor: #17191d 
@@ -32,8 +32,8 @@ $gutterTiny: 10px
 
 //$spriteUrl: url('../img/sprite.png')
 //$iconSpriteSmallUrl: url('../img/icon-small-sprite.png')
-$spriteUrl: url('../assets/14/25/tiny_sprite.png')
-$iconSpriteSmallUrl: url('../assets/14/26/icon-small-sprite.png')
+$spriteUrl: url('http://epiphanybuilders.com/assets/14/25/sprite.png')
+$iconSpriteSmallUrl: url('http://epiphanybuilders.com/assets/14/26/icon-small-spite.png')
 
 $imageWidthSmall: 280px
 $imageHeightSmall: 150px
@@ -45,11 +45,29 @@ $imageWidthLarge: 640px
 $imageHeightLarge: 400px
 
 
-$fontUppercasedSize: 10.5px
-$letterSpacing: 1px
+$fontUppercasedSize: 10.3px
+$letterSpacing: 1.5px
 
 @mixin uppercased-text($size: $fontUppercasedSize, $spacing: $letterSpacing)
     text-transform: uppercase
     font-size: $size
     letter-spacing: $spacing
+
+
+@mixin button-gradient
+    background: -moz-linear-gradient(top, #31353c 0%, #282c32 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#31353c), color-stop(100%,#282c32))
+    background: -webkit-linear-gradient(top, #31353c 0%,#282c32 100%)
+    background: -o-linear-gradient(top, #31353c 0%,#282c32 100%)
+    background: -ms-linear-gradient(top, #31353c 0%,#282c32 100%)
+    background: linear-gradient(to bottom, #31353c 0%,#282c32 100%)
+
+@mixin remove-gradient
+    background: -moz-linear-gradient(none)
+    background: -webkit-gradient(none)
+    background: -webkit-linear-gradient(none)
+    background: -o-linear-gradient(none)
+    background: -ms-linear-gradient(none)
+    background: linear-gradient(none)
+    
 

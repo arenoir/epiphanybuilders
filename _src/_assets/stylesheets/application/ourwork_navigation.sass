@@ -1,7 +1,6 @@
 @import "application/common"
 
 .slide-container
-    float: left
     width: $imageWidthSmall
     height: $imageHeightSmall
     background: #fff
@@ -23,6 +22,7 @@
             img
                 width: $imageWidthSmall
                 height: auto
+
 
 
 
@@ -67,12 +67,35 @@
                 border-top: 1px solid $borderLightColor
 
 
+.slide-thumbnails
+    margin: 0
+    padding: 0
+    margin-right: $gutterTiny
+    display: block
+    overflow: hidden
+    li
+        list-style: none
+        float: left
+        height: 60px
+        display: inline-block
+        margin: 10px 10px 0 0
+        border: 2px solid #15171a
+        overflow: hidden
+        a
+            display: block
+            img
+                height: 60px
+
+        &.active
+            border-color: #1661b6
+
+
+
 
 
 //.slide-description
 
-ul.slide-control
-    margin-right: $gutterTiny
+.slide-control
     padding: 0
     display: block
     text-align: center
@@ -124,9 +147,14 @@ ul.slide-control
                 &:hover
                     background-position: 0 -140px
 
-.slide-thumbnails
-    display: inline-block
-    height: 60px
+
+.what-we-do-icons-container
+    width: 260px
+    margin-top: 20px
+    float: left
+    .icon-container
+        margin-right: 0
+        margin-bottom: 30px
 
 
 
@@ -143,7 +171,9 @@ ul.slide-control
                 img
                     width: $imageWidthMedium
                     height: auto
-    .slide-control
+    .slide-control,
+    .slide-thumbnails-container,
+    .slide-indicator-container
         float: right
         margin-right: $gutterSmall
         width: $imageWidthMedium
@@ -170,20 +200,21 @@ ul.slide-control
             span 
                 margin-left: 68px
     .content-container,
-    .slide-thumbnails-container
+    .slide-thumbnails-container,
+    .slide-indicator-container,
+    .slide-control,
+    .wwd-text-container
         width: $imageWidthMedium
         float: right
-        margin-right: $gutterLarge
+        margin-right: $gutterSmall
 
     .what-we-do-icons-container
-        width: 260px
+        width: 230px
         margin-top: 20px
         float: left
-        margin-right: $gutterLarge
         .icon-container
-            margin-right: 6px
+            margin-right: -2px
             margin-bottom: 30px
-
 
 
 
@@ -206,7 +237,9 @@ ul.slide-control
                     width: $imageWidthLarge
                     height: auto
 
-    .slide-control
+    .slide-control,    
+    .slide-thumbnails-container,
+    .wwd-text-container
         margin-right: $gutterLarge
         width: $imageWidthLarge
 
@@ -214,3 +247,9 @@ ul.slide-control
         width: $imageWidthLarge
         float: right
         margin-right: $gutterLarge
+
+    .what-we-do-icons-container
+        width: 260px
+        float: left
+        .icon-container
+            margin-right: 2px

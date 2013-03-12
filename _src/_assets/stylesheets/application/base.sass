@@ -27,18 +27,42 @@ hr
 h1, h2, h3
     text-transform: uppercase
     font-weight: normal
-h1
-    font-size: 20px
-
 h2
-    font-size: 16px
+    font-size: 20px
+    margin-top: 20px
+    margin-bottom: 20px
 
 h3
     font-size: 14px
 
+p
+    line-height: 1.5
+
 img 
     vertical-align: middle
 
+input[type="text"]
+    background-color: #a8aebe
+    padding: 7px
+    border: 1px solid #a8aebe
+    border-radius: 3px
+    font-size: 16px
+    color: #000
+
+input[type="submit"],
+.button
+    border: 1px solid #191b20
+    border-radius: 3px
+    background-color: #2f333a
+    padding: 12px 25px
+    color: $textColor
+    @include uppercased-text
+    @include button-gradient
+
+    &:hover
+        text-decoration: none
+        //@include remove-gradient
+        background: #191b20
 
 fieldset 
     border: 0
