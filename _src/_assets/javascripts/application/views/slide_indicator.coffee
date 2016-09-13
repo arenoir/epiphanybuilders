@@ -16,6 +16,7 @@ class Eb.Views.SlideIndicator extends Backbone.View
   activateSlide: ->
     Eb.stopSlideShow @collection
     @collection.setSelected(@model)
+    return false
 
   toggleActive: ->
     if @isActive()

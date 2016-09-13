@@ -10,6 +10,7 @@ class Eb.Views.NextSlide extends Backbone.View
   next: ->
     Eb.stopSlideShow @collection
     @collection.next()
+    return false
 
 class Eb.Views.PreviousSlide extends Backbone.View
   tagName: 'li'
@@ -23,3 +24,4 @@ class Eb.Views.PreviousSlide extends Backbone.View
   previous: ->
     Eb.stopSlideShow @collection
     @collection.previous()
+    return false
