@@ -1,0 +1,55 @@
+/*
+Syntax error: File to import not found or unreadable: common.
+              Load paths:
+                /Users/aaronrenoir/Workspace/arenoir/epiphanybuilders
+                /Users/aaronrenoir/Workspace/arenoir/epiphanybuilders/_src/_assets/stylesheets
+        on line 1 of _src/_assets/stylesheets/base.sass
+
+1: @import 'common'
+2: 
+3: html,
+4: button,
+5: input,
+6: select,
+
+Backtrace:
+_src/_assets/stylesheets/base.sass:1
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/import_node.rb:45:in `import'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:215:in `visit_import'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/tree/root_node.rb:20:in `render'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/engine.rb:315:in `_render'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/engine.rb:262:in `render'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin/compiler.rb:235:in `watch'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/plugin.rb:107:in `method_missing'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/exec.rb:444:in `watch_or_update'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/exec.rb:307:in `process_result'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/exec.rb:41:in `parse'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/lib/sass/exec.rb:21:in `parse!'
+/Users/aaronrenoir/.gem/ruby/2.3.1/gems/sass-3.2.5/bin/scss:8:in `<top (required)>'
+/Users/aaronrenoir/.gem/ruby/2.3.1/bin/scss:23:in `load'
+/Users/aaronrenoir/.gem/ruby/2.3.1/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: common.\A               Load paths:\A                 /Users/aaronrenoir/Workspace/arenoir/epiphanybuilders\A                 /Users/aaronrenoir/Workspace/arenoir/epiphanybuilders/_src/_assets/stylesheets\A         on line 1 of _src/_assets/stylesheets/base.sass\A \A 1: @import 'common'\A 2: \A 3: html,\A 4: button,\A 5: input,\A 6: select,"; }

@@ -1,0 +1,48 @@
+.ask-bob-form-container {
+  margin-top: 40px; }
+  .ask-bob-form-container input[type="text"] {
+    margin-top: 6px; }
+
+.qa-container,
+.ask-bob-form-container {
+  margin-left: 90px;
+  margin-bottom: 50px;
+  margin-right: 10px; }
+  .qa-container i,
+  .ask-bob-form-container i {
+    margin-left: -70px;
+    position: absolute; }
+  .qa-container .q,
+  .ask-bob-form-container .q {
+    font-size: 20px;
+    border-bottom: 1px solid #17191d;
+    padding-bottom: 16px;
+    color: #d4d8e3; }
+    .qa-container .q small,
+    .ask-bob-form-container .q small {
+      margin-top: 5px;
+      display: block;
+      font-size: 10px;
+      color: #93959b; }
+  .qa-container .a,
+  .ask-bob-form-container .a {
+    border-top: 1px solid #26292e; }
+    .qa-container .a p,
+    .ask-bob-form-container .a p {
+      margin: 0;
+      padding: 15px 0; }
+
+@media screen and (min-width: 768px) {
+  .qa-container {
+    margin-right: 16px; }
+
+  .ask-bob-form-container input[type="text"] {
+    width: 400px;
+    margin-right: 100px; } }
+@media screen and (min-width: 1000px) {
+  .qa-container {
+    margin-right: 40px; }
+
+  .ask-bob-form-container input[type="text"] {
+    width: 690px;
+    margin-right: 20px; } }

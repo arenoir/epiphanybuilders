@@ -1,0 +1,62 @@
+.active a {
+  color: #1661b6; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  float: left; }
+  nav ul li {
+    float: left;
+    margin: 20px 0 25px 20px;
+    line-height: 16px;
+    list-style: none; }
+    nav ul li a {
+      color: #93959b;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-transform: uppercase;
+      font-size: 10.3px;
+      letter-spacing: 1.5px; }
+nav.secondary ul {
+  float: right; }
+  nav.secondary ul li {
+    margin: 20px 0 25px 15px; }
+    nav.secondary ul li a {
+      width: 20px;
+      text-indent: -9999px;
+      background: url("http://epiphanybuilders.com/assets/14/26/icon-small-spite.png") 0 0 no-repeat; }
+      nav.secondary ul li a.icon-map {
+        background-position: 0 -60px; }
+      nav.secondary ul li a.icon-phone {
+        background-position: 0 -120px; }
+      nav.secondary ul li a.icon-email {
+        background-position: 0 -180px; }
+
+@media screen and (min-width: 768px) {
+  nav ul li {
+    float: left;
+    margin: 20px 35px 25px 0;
+    line-height: 16px; } }
+@media screen and (min-width: 1000px) {
+  nav ul {
+    margin: 0;
+    padding: 0;
+    float: left; }
+    nav ul li {
+      float: left;
+      margin: 20px 35px 25px 0;
+      line-height: 16px; }
+  nav.secondary ul {
+    float: right; }
+    nav.secondary ul li {
+      margin: 20px 0 25px 15px; }
+      nav.secondary ul li a {
+        padding-left: 23px;
+        text-indent: 0;
+        width: auto; }
+
+  .slide-container {
+    width: 440px;
+    height: 300px;
+    background: white; } }

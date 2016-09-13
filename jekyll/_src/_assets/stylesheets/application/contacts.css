@@ -1,0 +1,13 @@
+.map-container {
+  display: none; }
+
+@media screen and (min-width: 768px) {
+  .contact-info-container {
+    float: left;
+    width: 290px; }
+
+  .map-container {
+    display: block;
+    width: 640px;
+    overflow: hidden;
+    float: right; } }
